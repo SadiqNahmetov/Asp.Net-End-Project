@@ -23,15 +23,17 @@ namespace AspNetCoreEndProject.Controllers
         {
 
             IEnumerable<Slider> sliders = await _context.Sliders.Where(m => !m.isDeleted).ToListAsync();
-
-            IEnumerable<Currency> currencies = await _context.Currencies.Where(m => !m.isDeleted).ToListAsync();
-            IEnumerable<Languge> languges = await _context.Languges.Where(m => !m.isDeleted).ToListAsync();
+            IEnumerable<Link> links = await _context.Links.Where(m => !m.isDeleted).ToListAsync();
+            OurProduct ourProduct = await _context.OurProducts.Where(m => !m.isDeleted).FirstOrDefaultAsync();
+            IEnumerable<Product> products = await _context.Products.Where(m => !m.isDeleted).ToListAsync();
 
             HomeVM mopdel = new HomeVM 
             { 
                 Sliders = sliders,
-                Currencies = currencies,
-                Languges = languges
+                Links = links,
+                OurProducts = ourProduct,
+                Products = products
+
             };
 
             return View(mopdel);

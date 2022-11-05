@@ -9,8 +9,16 @@ namespace AspNetCoreEndProject.ViewModels
     public class HomeVM
     {
         public IEnumerable<Slider> Sliders { get; set; }
-        public IEnumerable<Currency> Currencies { get; set; }
-        public IEnumerable<Languge> Languges { get; set; }
+     
+        public IEnumerable<Link> Links { get; set; }
+        public OurProduct OurProducts { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+
+
+
+
+
+
 
 
 

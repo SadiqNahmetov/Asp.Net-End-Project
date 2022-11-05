@@ -8,11 +8,6 @@ namespace AspNetCoreEndProject.Models
     public class Currency : BaseEntity
     {
         public string MonetaryUnit { get; set; }
-
-        //public int CurensyNameId { get; set; }
-
-        //public  CurrencyName CurrencyName { get; set; }
-
-
+        
     }
 }

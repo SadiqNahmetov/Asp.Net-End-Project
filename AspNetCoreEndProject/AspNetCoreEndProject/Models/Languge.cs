@@ -7,6 +7,8 @@ namespace AspNetCoreEndProject.Models
 {
     public class Languge : BaseEntity
     {
+        public string Image { get; set; }
+
         public string NationalLanguge { get; set; }
     }
 }
