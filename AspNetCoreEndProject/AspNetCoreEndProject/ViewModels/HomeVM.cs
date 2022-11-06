@@ -13,12 +13,13 @@ namespace AspNetCoreEndProject.ViewModels
         public IEnumerable<Link> Links { get; set; }
         public OurProduct OurProducts { get; set; }
         public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Banner> Banners { get; set; }
 
+        public TopSeller TopSeller { get; set; }
 
-
-
-
-
+        public ProductBanner ProductBanner { get; set; }
+        public IEnumerable<Brand> Brands { get; set; }
+        public OurBlog OurBlog { get; set; }
 
 
 

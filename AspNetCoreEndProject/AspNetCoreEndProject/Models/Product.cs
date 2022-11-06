@@ -8,7 +8,7 @@ namespace AspNetCoreEndProject.Models
 {
     public class Product : BaseEntity
     {
-        public string Image { get; set; }
+    
         public string Title { get; set; }
 
         [Column(TypeName = "decimal(18,4)")]
@@ -16,6 +16,10 @@ namespace AspNetCoreEndProject.Models
 
         [Column(TypeName = "decimal(18,4)")]
         public decimal DiscountPrice { get; set; }
+
+        public ICollection<ProductImage> ProductImage { get; set; }
+
+
 
 
 
