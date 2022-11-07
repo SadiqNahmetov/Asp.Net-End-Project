@@ -19,6 +19,7 @@ namespace AspNetCoreEndProject.Models
 
         public ICollection<ProductImage> ProductImage { get; set; }
 
+        public int SellerCount { get; set; }
 
 
 

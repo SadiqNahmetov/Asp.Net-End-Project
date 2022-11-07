@@ -1,6 +1,7 @@
-﻿
+﻿@model BlogVM
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Blog";
 }
 
 <!-- main wrapper start -->
@@ -32,19 +33,25 @@
                     <div class="blog-widget-wrapper">
                         <!-- widget item start -->
                         <div class="blog-widget">
-                            <div class="blog-widget-img">
-                                <img src="~/assets/img/blog/11.jpg" alt="author thumb" />
-                            </div>
+                            @foreach (var item in Model.Customer)
+                            {
+                                <div class="blog-widget-img">
+                                    <img src="~/assets/img/blog/@item.Image" alt="author thumb" />
+                                </div>
+                           
+
                             <div class="blog-author-title text-center">
-                                <h5>Erik Jhonson</h5>
-                                <span>UI UX Designer</span>
+                                <h5>@item.BlogAuthor</h5>
+                                <span>@item.Position</span>
                                 <div class="blog-widget-icon">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-vimeo"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                    @foreach (var icon in item.Socials)
+                                    {
+                                        <a href="#">@Html.Raw(icon.Icon)</a>
+                                    }
+
                                 </div>
                             </div>
+                            }
                         </div>
                         <!-- widget item end -->
                         <!-- widget item start -->
@@ -128,52 +135,35 @@
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="row">
-                        <div class="col-md-6">
-                            <!-- blog single item start -->
-                            <div class="blog-post-item mb-30">
-                                <div class="blog-thumb">
-                                    <a asp-controller="BlogDetail" asp-action="Index">
-                                        <img src="~/assets/img/blog/blog-1.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="blog-title">
+                        @foreach (var blog in Model.Blogs)
+                        {
+                            <div class="col-md-6">
+                                <!-- blog single item start -->
+
+                                <div class="blog-post-item mb-30">
+                                    <div class="blog-thumb">
                                         <a asp-controller="BlogDetail" asp-action="Index">
-                                            Celebrity Daughter Opens About Upto Having Her Eye
+                                            <img src="~/assets/img/blog/@blog.Image" alt="blog thumb">
                                         </a>
-                                    </h5>
-                                    <ul class="blog-meta">
-                                        <li><span>By: </span>Admin,</li>
-                                        <li><span>On: </span>14.07.2029</li>
-                                    </ul>
-                                    <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <h5 class="blog-title">
+                                            <a asp-controller="BlogDetail" asp-action="Index">
+                                                @blog.Title
+                                            </a>
+                                        </h5>
+                                        <ul class="blog-meta">
+                                            <li>@blog.Admin</li>
+                                            <li><span>On: </span>@blog.CreateDate</li>
+                                        </ul>
+                                        <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
+                                    </div>
                                 </div>
+                                <!-- blog single item start -->
                             </div>
-                            <!-- blog single item start -->
-                        </div>
-                        <div class="col-md-6">
-                            <!-- blog single item start -->
-                            <div class="blog-post-item mb-30">
-                                <div class="blog-thumb">
-                                    <a asp-controller="BlogDetail" asp-action="Index">
-                                        <img src="~/assets/img/blog/blog-2.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="blog-title">
-                                        <a asp-controller="BlogDetail" asp-action="Index">
-                                            Sotto Winner Offering Up Money To Any Man That Will Date Her
-                                        </a>
-                                    </h5>
-                                    <ul class="blog-meta">
-                                        <li><span>By: </span>Admin,</li>
-                                        <li><span>On: </span>14.07.2029</li>
-                                    </ul>
-                                    <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
-                                </div>
-                            </div>
-                            <!-- blog single item start -->
-                        </div>
+                        }
+
+                  
                         <div class="col-md-6">
                             <!-- blog single item start -->
                             <div class="blog-post-item mb-30">
@@ -216,52 +206,7 @@
                             </div>
                             <!-- blog single item start -->
                         </div>
-                        <div class="col-md-6">
-                            <!-- blog single item start -->
-                            <div class="blog-post-item mb-30">
-                                <div class="blog-thumb">
-                                    <a asp-controller="BlogDetail" asp-action="Index">
-                                        <img src="~/assets/img/blog/blog-3.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="blog-title">
-                                        <a asp-controller="BlogDetail" asp-action="Index">
-                                            Romantic Love Stories Of Hollywood Popular Celebrities
-                                        </a>
-                                    </h5>
-                                    <ul class="blog-meta">
-                                        <li><span>By: </span>Admin,</li>
-                                        <li><span>On: </span>14.07.2029</li>
-                                    </ul>
-                                    <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
-                                </div>
-                            </div>
-                            <!-- blog single item start -->
-                        </div>
-                        <div class="col-md-6">
-                            <!-- blog single item start -->
-                            <div class="blog-post-item mb-30">
-                                <div class="blog-thumb">
-                                    <a asp-controller="BlogDetail" asp-action="Index">
-                                        <img src="~/assets/img/blog/blog-4.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="blog-title">
-                                        <a asp-controller="BlogDetail" asp-action="Index">
-                                            Celebrity Daughter Opens About Upto Having Her Eye
-                                        </a>
-                                    </h5>
-                                    <ul class="blog-meta">
-                                        <li><span>By: </span>Admin,</li>
-                                        <li><span>On: </span>14.07.2029</li>
-                                    </ul>
-                                    <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
-                                </div>
-                            </div>
-                            <!-- blog single item start -->
-                        </div>
+                     
                     </div>
                     <!-- start pagination area -->
                     <div class="paginatoin-area text-center">

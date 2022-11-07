@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreEndProject.Data;
+using AspNetCoreEndProject.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,15 @@ namespace AspNetCoreEndProject.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+        public ContactController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            Contact contact = await _context.Contacts.Where(m => !m.isDeleted).FirstOrDefaultAsync();
+            return View(contact);
         }
     }
 }

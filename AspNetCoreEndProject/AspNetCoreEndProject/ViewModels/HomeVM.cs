@@ -20,6 +20,7 @@ namespace AspNetCoreEndProject.ViewModels
         public ProductBanner ProductBanner { get; set; }
         public IEnumerable<Brand> Brands { get; set; }
         public OurBlog OurBlog { get; set; }
+        public IEnumerable<Blog> Blogs { get; set; }
 
 
 

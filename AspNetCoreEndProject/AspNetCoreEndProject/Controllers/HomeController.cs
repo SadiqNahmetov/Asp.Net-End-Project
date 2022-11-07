@@ -36,8 +36,9 @@ namespace AspNetCoreEndProject.Controllers
 
             OurProduct ourProduct = await _context.OurProducts.Where(m => !m.isDeleted).FirstOrDefaultAsync();
 
-            IEnumerable<Product> products = await _context.Products
+            IEnumerable<Product> products = await _context.Products 
                 .Where(m => !m.isDeleted)
+                .Where(m=> m.SellerCount > 0)
                 .Include(m=>m.ProductImage)
                 .Take(productTake).ToListAsync();
             
@@ -50,6 +51,7 @@ namespace AspNetCoreEndProject.Controllers
             IEnumerable<Brand> brands = await _context.Brands.Where(m => !m.isDeleted).ToListAsync();
 
             OurBlog ourBlog = await _context.OurBlogs.Where(m => !m.isDeleted).FirstOrDefaultAsync();
+            IEnumerable<Blog> blogs = await _context.Blogs.Where(m => !m.isDeleted).Take(4).ToListAsync();
 
 
 
@@ -64,7 +66,9 @@ namespace AspNetCoreEndProject.Controllers
                 TopSeller = topSeller,
                 ProductBanner = productBanner,
                 Brands = brands,
-                OurBlog = ourBlog
+                OurBlog = ourBlog,
+                Blogs = blogs
+                
 
             };
 
