@@ -19,7 +19,8 @@ namespace AspNetCoreEndProject.Models
         [NotMapped]
         public IFormFile Photo { get; set; }
         public string Description { get; set; }
-
+        public string DescriptionSecond { get; set; }
+        public string DescriptionThird { get; set; }
 
 
     }

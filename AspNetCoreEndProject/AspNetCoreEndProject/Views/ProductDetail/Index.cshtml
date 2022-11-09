@@ -87,8 +87,7 @@
                                         <span class="old-price"><del>$@Model.Product.Price.ToString("##.00")</del></span>
                                     </div>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                        Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.
+                                       @Html.Raw(Model.Product.Description)
                                     </p>
                                     <div class="quantity-cart-box d-flex align-items-center mb-20">
                                         <div class="quantity">
@@ -102,10 +101,11 @@
                                     </div>
                                     <div class="share-icon">
                                         <h5 class="cat-title">Share:</h5>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+
+                                        <a href="#">@Html.Raw(Model.Settings["Facebook"])</a>
+                                        <a href="#">@Html.Raw(Model.Settings["Twitter"])</a>
+                                        <a href="#">@Html.Raw(Model.Settings["Linkedin"])</a>
+                                        <a href="#">@Html.Raw(Model.Settings["Instagram"])</a>
                                     </div>
                                 </div>
                             </div>

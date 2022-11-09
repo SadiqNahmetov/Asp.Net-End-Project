@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreEndProject.ViewModels
 {
-    public class ProductDetailVM
+    public class ShopVM
     {
-        public Product Product { get; set; }
-        public Dictionary<string, string> Settings { get; set; }
+        public IEnumerable<Product> Product { get; set; }
 
     }
 }

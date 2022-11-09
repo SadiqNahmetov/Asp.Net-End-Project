@@ -71,7 +71,7 @@
                                 {
                                     <li class="recent-posts">
                                         <div class="recent-posts-image">
-                                            <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/@item.Image" alt="post thumb"></a>
+                                            <a asp-controller="BlogDetail" asp-action="Index" asp-route-id="@item.Id"><img src="~/assets/img/blog/@item.Image" alt="post thumb"></a>
                                         </div>
                                         <div class="recent-posts-body">
                                             <span class="recent-posts-meta">@item.CreateDate.ToString("dd MMMM yyyy")</span>
@@ -121,7 +121,7 @@
 
                                 <div class="blog-post-item mb-30">
                                     <div class="blog-thumb">
-                                        <a asp-controller="BlogDetail" asp-action="Index">
+                                        <a asp-controller="BlogDetail" asp-action="Index" asp-route-id="@blog.Id">
                                             <img src="~/assets/img/blog/@blog.Image" alt="blog thumb">
                                         </a>
                                     </div>

@@ -21,8 +21,7 @@ namespace AspNetCoreEndProject.Models
 
         public int SellerCount { get; set; }
 
-
-
+        public string Description { get; set; }
 
 
     }
