@@ -1,4 +1,5 @@
-﻿
+﻿@model ProductDetailVM
+ 
 @{
     ViewData["Title"] = "Index";
 }
@@ -35,35 +36,55 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="product-large-slider mb-20">
-                                    <div class="pro-large-img img-zoom">
-                                        <img src="~/assets/img/product/product-details-img1.jpg" alt="" />
-                                    </div>
-                                    <div class="pro-large-img img-zoom">
-                                        <img src="~/assets/img/product/product-details-img2.jpg" alt="" />
-                                    </div>
-                                    <div class="pro-large-img img-zoom">
-                                        <img src="~/assets/img/product/product-details-img3.jpg" alt="" />
-                                    </div>
-                                    <div class="pro-large-img img-zoom">
-                                        <img src="~/assets/img/product/product-details-img4.jpg" alt="" />
-                                    </div>
+
+
+
+                                 
+                                        <div class="pro-large-img img-zoom">
+                                            <img src="~/assets/img/product/@Model.Product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="" />
+                                        </div>
+                                    
+
+
+
+
+                                    @*<div class="pro-large-img img-zoom">
+            <img src="~/assets/img/product/product-details-img2.jpg" alt="" />
+        </div>
+        <div class="pro-large-img img-zoom">
+            <img src="~/assets/img/product/product-details-img3.jpg" alt="" />
+        </div>
+        <div class="pro-large-img img-zoom">
+            <img src="~/assets/img/product/product-details-img4.jpg" alt="" />
+        </div>*@
+
                                 </div>
                                 <div class="pro-nav slick-row-5">
-                                    <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img1.jpg" alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img2.jpg" alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img3.jpg" alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img4.jpg" alt="" /></div>
+                                    @foreach (var item in Model.Product.ProductImage.Where(m=>!m.IsMain))
+                                    {
+                                        var activSlid = "active";
+                                        if(item != Model.Product.ProductImage.First())
+                                        {
+                                            activSlid = "";
+                                        }
+                                         <div class="pro-nav-thumb" @activSlid><img src="~/assets/img/product/@item.Image" alt="" /></div>
+                                    }
+
+
+
+
+                
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="product-details-des">
-                                    <h3 class="pro-det-title">Primitive Mens Premium Shoes</h3>
+                                    <h3 class="pro-det-title">@Model.Product.Title</h3>
                                     <div class="pro-review">
                                         <span><a href="#">1 Review(s)</a></span>
                                     </div>
                                     <div class="price-box">
-                                        <span class="regular-price">$70.00</span>
-                                        <span class="old-price"><del>$80.00</del></span>
+                                        <span class="regular-price">$@((Model.Product.Price-((Model.Product.Price*Model.Product.DiscountPrice)/100)).ToString("##.00"))</span>
+                                        <span class="old-price"><del>$@Model.Product.Price.ToString("##.00")</del></span>
                                     </div>
                                     <p>
                                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>

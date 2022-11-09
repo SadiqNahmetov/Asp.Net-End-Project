@@ -33,6 +33,10 @@ namespace AspNetCoreEndProject.Data
 
         public DbSet<Social> Socials { get; set; }
 
+        public DbSet<Tag> Tags { get; set; }
+
+
+
 
 
 

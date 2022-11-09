@@ -67,42 +67,20 @@
                         <div class="blog-widget">
                             <h4 class="blog-widget-title">Recent Posts</h4>
                             <ul class="recent-posts-inner">
-                                <li class="recent-posts">
-                                    <div class="recent-posts-image">
-                                        <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/recent-01.jpg" alt="post thumb"></a>
-                                    </div>
-                                    <div class="recent-posts-body">
-                                        <span class="recent-posts-meta">February  13,  2018</span>
-                                        <h6 class="recent-posts-title"><a asp-controller="BlogDetail" asp-action="Index">Diffrent title gose This is demo</a></h6>
-                                    </div>
-                                </li>
-                                <li class="recent-posts">
-                                    <div class="recent-posts-image">
-                                        <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/recent-02.jpg" alt="post thumb"></a>
-                                    </div>
-                                    <div class="recent-posts-body">
-                                        <span class="recent-posts-meta">February  13,  2018</span>
-                                        <h6 class="recent-posts-title"><a asp-controller="BlogDetail" asp-action="Index">Diffrent title gose This is demo</a></h6>
-                                    </div>
-                                </li>
-                                <li class="recent-posts">
-                                    <div class="recent-posts-image">
-                                        <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/recent-03.jpg" alt="post thumb"></a>
-                                    </div>
-                                    <div class="recent-posts-body">
-                                        <span class="recent-posts-meta">February  13,  2018</span>
-                                        <h6 class="recent-posts-title"><a asp-controller="BlogDetail" asp-action="Index">Diffrent title gose This is demo</a></h6>
-                                    </div>
-                                </li>
-                                <li class="recent-posts">
-                                    <div class="recent-posts-image">
-                                        <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/recent-04.jpg" alt="post thumb"></a>
-                                    </div>
-                                    <div class="recent-posts-body">
-                                        <span class="recent-posts-meta">February  13,  2018</span>
-                                        <h6 class="recent-posts-title"><a asp-controller="BlogDetail" asp-action="Index">Diffrent title gose This is demo</a></h6>
-                                    </div>
-                                </li>
+                                @foreach (var item in Model.RecentPosts)
+                                {
+                                    <li class="recent-posts">
+                                        <div class="recent-posts-image">
+                                            <a asp-controller="BlogDetail" asp-action="Index"><img src="~/assets/img/blog/@item.Image" alt="post thumb"></a>
+                                        </div>
+                                        <div class="recent-posts-body">
+                                            <span class="recent-posts-meta">@item.CreateDate.ToString("dd MMMM yyyy")</span>
+                                            <h6 class="recent-posts-title"><a asp-controller="BlogDetail" asp-action="Index">@item.Title</a></h6>
+                                        </div>
+                                    </li>
+
+                                }
+
                             </ul>
                         </div>
                         <!-- widget item end -->
@@ -121,15 +99,16 @@
                         <!-- widget item end -->
                         <!-- widget item start -->
                         <div class="blog-widget">
+
                             <h4 class="blog-widget-title">Tags</h4>
                             <div class="blog-tag">
-                                <a asp-controller="BlogDetail" asp-action="Index">Fashion</a>
-                                <a asp-controller="BlogDetail" asp-action="Index">Shoes</a>
-                                <a asp-controller="BlogDetail" asp-action="Index">Wallet</a>
-                                <a asp-controller="BlogDetail" asp-action="Index">Bags</a>
-                                <a asp-controller="BlogDetail" asp-action="Index">Jewelery</a>
+                                @foreach (var tag in Model.Tags)
+                                {
+                                    <a asp-controller="BlogDetail" asp-action="Index">@tag.TagName</a>
+         
+                                }
                             </div>
-                        </div>
+                            </div>
                         <!-- widget item end -->
                     </div>
                 </div>
@@ -153,8 +132,8 @@
                                             </a>
                                         </h5>
                                         <ul class="blog-meta">
-                                            <li>@blog.Admin</li>
-                                            <li><span>On: </span>@blog.CreateDate</li>
+                                            <li>@Html.Raw(blog.Admin)</li>
+                                            <li><span>On: </span>@blog.CreateDate.ToString("dd-MM-yyyy")</li>
                                         </ul>
                                         <a asp-controller="BlogDetail" asp-action="Index" class="read-more">Read More...</a>
                                     </div>

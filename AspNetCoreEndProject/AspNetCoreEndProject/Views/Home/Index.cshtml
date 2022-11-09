@@ -81,7 +81,7 @@
                         {
                             <div class="product-item mb-50">
                                 <div class="product-thumb">
-                                    <a asp-controller="ProductDetail" asp-action="Index">
+                                    <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
                                        
                                             <img src="~/assets/img/product/@product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                         

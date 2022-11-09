@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\AdminArea\Data\**" />
+    <Compile Remove="Areas\AdminArea\Models\**" />
+    <Content Remove="Areas\AdminArea\Data\**" />
+    <Content Remove="Areas\AdminArea\Models\**" />
+    <EmbeddedResource Remove="Areas\AdminArea\Data\**" />
+    <EmbeddedResource Remove="Areas\AdminArea\Models\**" />
+    <None Remove="Areas\AdminArea\Data\**" />
+    <None Remove="Areas\AdminArea\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20221107103604_AddContactTable.cs" />
     <Compile Remove="Migrations\20221107103604_AddContactTable.Designer.cs" />
     <Compile Remove="Migrations\20221107104509_CreateContactTable.cs" />
@@ -25,13 +36,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\AdminArea\Controllers\" />
-    <Folder Include="Areas\AdminArea\Data\" />
-    <Folder Include="Areas\AdminArea\Models\" />
-    <Folder Include="Areas\AdminArea\Views\" />
   </ItemGroup>
 
 </Project>

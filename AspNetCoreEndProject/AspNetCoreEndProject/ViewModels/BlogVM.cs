@@ -9,7 +9,11 @@ namespace AspNetCoreEndProject.ViewModels
     public class BlogVM 
     {
         public IEnumerable<Blog> Blogs { get; set; }
+        public IEnumerable<Blog> RecentPosts { get; set; }
+
         public IEnumerable<Customer> Customer { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
+
 
 
 
