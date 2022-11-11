@@ -75,5 +75,9 @@ namespace AspNetCoreEndProject.Controllers
             return View(mopdel);
         }
  
+
+
+
+
     }
 }

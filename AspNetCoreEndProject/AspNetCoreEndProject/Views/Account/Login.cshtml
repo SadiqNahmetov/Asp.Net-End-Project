@@ -1,0 +1,47 @@
+﻿@model LoginVM
+@{
+    Layout = "_Layout";
+}
+
+<!-- Login Content Start -->
+<div class="login-register-wrapper section-padding">
+    <div class="container">
+        <div class="member-area-from-wrap">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login-reg-form-wrap">
+                        <h2>Sign In</h2>
+                        <div class="text-danger mb-2" asp-validation-summary="All"></div>
+                        <form asp-controller="Account" asp-action="Login" method="post" enctype="multipart/form-data">
+                            <div class="single-input-item">
+                                <label asp-for="UsernameOrEmail" class="form-label">Email or username</label>
+                                <input asp-for="UsernameOrEmail" placeholder="Email or Username" required />
+                                <span class="text-danger" asp-validation-for="UsernameOrEmail"></span>
+                            </div>
+                            <div class="single-input-item">
+                                <label asp-for="Password" class="form-label">Password</label>
+                                <input asp-for="Password" placeholder="Enter your Password" required />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="single-input-item">
+                                <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                    <div class="remember-meta">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="forget-pwd">Forget Password?</a>
+                                </div>
+                            </div>
+                            <div class="single-input-item">
+                                <button class="btn">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login Content End -->

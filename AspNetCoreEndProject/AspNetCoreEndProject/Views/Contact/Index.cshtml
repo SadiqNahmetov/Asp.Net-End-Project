@@ -1,4 +1,4 @@
-﻿@model Contact
+﻿@model ContactVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -31,49 +31,53 @@
                 <div class="col-lg-6">
                     <div class="contact-message">
                         <h2 class="contact-title">tell us your project</h2>
-                        <form id="contact-form" action="http://whizthemes.com/mail-php/genger/mail.php" method="post" class="contact-form">
+                        <form id="contact-form" asp-controller="Contact" asp-action="Index" method="post" class="contact-form">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="first_name" placeholder="Name *" type="text" required>
+                                    <input type="text" placeholder="Name *" asp-for="SendMessage.Name" required>
+                                    <span class="text-danger my-2" asp-validation-for="SendMessage.Name"> </span>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="phone" placeholder="Phone *" type="text" required>
+                                    <input type="text" placeholder="Phone *" asp-for="SendMessage.Phone" required>
+                                    <span class="text-danger my-2" asp-validation-for="SendMessage.Phone"> </span>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="email_address" placeholder="Email *" type="text" required>
+                                    <input type="email" placeholder="Email *" asp-for="SendMessage.Email" required>
+                                    <span class="text-danger my-2" asp-validation-for="SendMessage.Email"> </span>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="contact_subject" placeholder="Subject *" type="text">
+                                    <input type="text" placeholder="Subject *" asp-for="SendMessage.Subject" required>
+                                    <span class="text-danger my-2" asp-validation-for="SendMessage.Subject"> </span>
                                 </div>
                                 <div class="col-12">
                                     <div class="contact2-textarea text-center">
-                                        <textarea placeholder="Message *" name="message" class="form-control2" required=""></textarea>
+                                        @*<textarea placeholder="Message *" name="message" class="form-control2" required=""></textarea>*@
+                                        <input type="text" placeholder="Message *" asp-for="SendMessage.Message" class="form-control2" required>
+                                        <span class="text-danger my-2" asp-validation-for="SendMessage.Message"> </span>
                                     </div>
                                     <div class="contact-btn">
                                         <button class="btn" type="submit">Send Message</button>
                                     </div>
                                 </div>
-                                <div class="col-12 d-flex justify-content-center">
-                                    <p class="form-messege"></p>
-                                </div>
+                              
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-info pt-0">
-                        <h2 class="contact-title">@Model.Title</h2>
+                        <h2 class="contact-title">@Model.Contact.Title</h2>
                         <p>
-                           @Model.Description
+                           @Model.Contact.Description
                         </p>
                         <ul>
-                            <li><i class="fa fa-fax"></i>@Model.Address</li>
-                            <li><i class="fa fa-phone"></i>@Model.Email</li>
-                            <li><i class="fa fa-envelope-o"></i>@Model.Phone</li>
+                            <li><i class="fa fa-fax"></i>@Model.Contact.Address</li>
+                            <li><i class="fa fa-phone"></i>@Model.Contact.Email</li>
+                            <li><i class="fa fa-envelope-o"></i>@Model.Contact.Phone</li>
                         </ul>
                         <div class="working-time">
                             <h3>Working Hours</h3>
-                            <p class="pb-0">@Html.Raw(Model.WorkingHours)</p>
+                            <p class="pb-0">@Html.Raw(Model.Contact.WorkingHours)</p>
                         </div>
                     </div>
                 </div>

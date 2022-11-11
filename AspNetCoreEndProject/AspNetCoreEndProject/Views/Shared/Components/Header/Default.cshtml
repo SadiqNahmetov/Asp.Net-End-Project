@@ -9,7 +9,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="welcome-message">
-                            <p>@Model.Settings["HeaderTitle"]/p>
+                            <p>@Model.Settings["HeaderTitle"]</p>
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
@@ -108,9 +108,21 @@
                                             <i class="ion-ios-gear-outline"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="login-register.html">login</a></li>
-                                            <li><a href="login-register.html">register</a></li>
-                                            <li><a href="my-account.html">my account</a></li>
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <li><a>@User.Identity.Name</a></li>
+                                                <li><a asp-controller="Account" asp-action="Logout">logout</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                                                <li><a asp-controller="Account" asp-action="Register">register</a></li>
+                                            }
+
+
+
+
                                         </ul>
                                     </li>
                                     <li>

@@ -37,40 +37,16 @@
                             <div class="col-lg-5">
                                 <div class="product-large-slider mb-20">
 
-
-
-                                 
                                         <div class="pro-large-img img-zoom">
                                             <img src="~/assets/img/product/@Model.Product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="" />
                                         </div>
-                                    
-
-
-
-
-                                    @*<div class="pro-large-img img-zoom">
-            <img src="~/assets/img/product/product-details-img2.jpg" alt="" />
-        </div>
-        <div class="pro-large-img img-zoom">
-            <img src="~/assets/img/product/product-details-img3.jpg" alt="" />
-        </div>
-        <div class="pro-large-img img-zoom">
-            <img src="~/assets/img/product/product-details-img4.jpg" alt="" />
-        </div>*@
 
                                 </div>
                                 <div class="pro-nav slick-row-5">
                                     @foreach (var item in Model.Product.ProductImage.Where(m=>!m.IsMain))
                                     {
-                                        var activSlid = "active";
-                                        if(item != Model.Product.ProductImage.First())
-                                        {
-                                            activSlid = "";
-                                        }
-                                         <div class="pro-nav-thumb" @activSlid><img src="~/assets/img/product/@item.Image" alt="" /></div>
+                                         <div class="pro-nav-thumb"><img src="~/assets/img/product/@item.Image" alt="" /></div>
                                     }
-
-
 
 
                 
@@ -131,7 +107,7 @@
                                     <div class="tab-content reviews-tab">
                                         <div class="tab-pane fade show active" id="tab_one">
                                             <div class="tab-one">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.</p>
+                                                <p>@Html.Raw(Model.Product.Description)</p>
                                                 <div class="review-description">
                                                     <div class="tab-thumb">
                                                         <img src="~/assets/img/about/services.jpg" alt="">
@@ -147,10 +123,9 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <p>Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue. Nunc facilisis sagittis ullamcorper.</p>
-                                                <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.</p>
+                                                <p>@Html.Raw(Model.Product.Description)</p>
+                                                <p>@Html.Raw(Model.Product.Description.Substring(10))</p>
                                             </div>
-                                        </div>
                                         <div class="tab-pane fade" id="tab_two">
                                             <table class="table table-bordered">
                                                 <tbody>

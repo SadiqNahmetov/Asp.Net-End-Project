@@ -8,7 +8,8 @@ namespace AspNetCoreEndProject.ViewModels
 {
     public class ShopVM
     {
-        public IEnumerable<Product> Product { get; set; }
+        public List<Product> Product { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
 
     }
 }

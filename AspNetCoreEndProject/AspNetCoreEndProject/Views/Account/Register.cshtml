@@ -1,0 +1,73 @@
+﻿@model RegisterVM
+@{
+    Layout = "_Layout";
+}
+
+<!-- Register Content Start -->
+<div class="login-register-wrapper section-padding">
+    <div class="container">
+        <div class="member-area-from-wrap">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login-reg-form-wrap signup-form">
+                        <h2>Singup Form</h2>
+                        <div class="text-danger mb-2" asp-validation-summary="All"></div>
+                        <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+                            <div class="single-input-item">
+                                <label asp-for="Fullname" class="form-label">Full name</label>
+                                <input asp-for="Fullname" placeholder="Full Name" required />
+                                <span class="text-danger" asp-validation-for="Fullname"></span>
+                            </div>
+                            <div class="single-input-item">
+                                <label asp-for="Email" class="form-label">Email</label>
+                                <input asp-for="Email" placeholder="Enter your Email" required />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+
+                            </div>
+                            <div class="single-input-item">
+                                <label asp-for="Username" class="form-label">Username</label>
+                                <input asp-for="Username" placeholder="Enter your Username" required />
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <label asp-for="Password" class="form-label">Password</label>
+                                        <input asp-for="Password" placeholder="Enter your Password" required />
+                                        <span class="text-danger" asp-validation-for="Password"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <label class="form-label" asp-for="RepeatPassword">Repeat Password</label>
+                                        <input asp-for="RepeatPassword" placeholder="Repeat your Password" required />
+                                        <span class="text-danger" asp-validation-for="RepeatPassword"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-input-item">
+                                <div class="login-reg-form-meta">
+                                    <div class="remember-meta">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="subnewsletter">
+                                            <label class="custom-control-label" for="subnewsletter">Subscribe Our Newsletter</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-input-item">
+                                <button class="btn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<partial name="_ValidationPartial" />
+
+}
+<!-- Register Content End -->

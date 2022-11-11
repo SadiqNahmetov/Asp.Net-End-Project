@@ -40,11 +40,11 @@
                             </div>
                             <div class="sidebar-body">
                                 <ul class="color-list">
-                                    <li><a href="#">Mens <span>(10)</span></a></li>
-                                    <li><a href="#">Womens <span>(05)</span></a></li>
-                                    <li><a href="#">Sports <span>(15)</span></a></li>
-                                    <li><a href="#">Fabric <span>(12)</span></a></li>
-                                    <li><a href="#">Leather <span>(20)</span></a></li>
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                        <li><a href="#" data-id="@category.Id">@category.Name <span>(10)</span></a></li>
+
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                             {
                                 <div class="col-lg-4 col-sm-6">
                                     <!-- product grid item start -->
-                                    <div class="product-item mb-53">
+                                    <div class="product-item mb-53" data-id="@shop.CategoryId">
                                         <div class="product-thumb">
                                             <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@shop.Id">
                                                 <img src="~/assets/img/product/@shop.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
@@ -181,7 +181,7 @@
                                     </div>
                                     <!-- product grid item end -->
                                     <!-- product list item start -->
-                                    <div class="product-list-item mb-30">
+                                    <div class="product-list-item mb-30" data-id="@shop.CategoryId">
                                         <div class="product-thumb">
                                             <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@shop.Id">
                                                 <img src="~/assets/img/product/@shop.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">

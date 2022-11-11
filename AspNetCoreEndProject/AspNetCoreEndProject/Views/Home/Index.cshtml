@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="product-content">
                                     <h5 class="product-name">
-                                        <a asp-controller="ProductDetail" asp-action="Index">@product.Title</a>
+                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">@product.Title</a>
                                     </h5>
                                     <div class="price-box">
                                        
@@ -125,7 +125,7 @@
                 <div class="col-md-6">
 
                     <div class="img-container mt-30">
-                        <a asp-controller="ProductDetail" asp-action="Index">
+                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@banner.Id">
                            
                             <img src="~/assets/img/banner/@banner.Image" alt="banner-image">
                         </a>
@@ -134,8 +134,8 @@
                             @Html.Raw(banner.Title)
                         </div>
                     </div>
-                      </div>
-                        }
+                 </div>
+                 }
 
                 </div>
         </div>
@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="pro-small-content">
                                         <h6 class="product-name">
-                                            <a asp-controller="ProductDetail" asp-action="Index">@item.Title</a>
+                                            <a asp-controller="ProductDetail" asp-action="Index"  asp-route-id="@item.Id">@item.Title</a>
                                         </h6>
                                         <div class="price-box">
                                             <span class="price-regular">$@((item.Price-((item.Price*item.DiscountPrice)/100)).ToString("##.00"))</span>

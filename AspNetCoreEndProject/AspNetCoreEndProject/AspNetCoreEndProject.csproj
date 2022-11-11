@@ -5,26 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\AdminArea\Data\**" />
-    <Compile Remove="Areas\AdminArea\Models\**" />
-    <Content Remove="Areas\AdminArea\Data\**" />
-    <Content Remove="Areas\AdminArea\Models\**" />
-    <EmbeddedResource Remove="Areas\AdminArea\Data\**" />
-    <EmbeddedResource Remove="Areas\AdminArea\Models\**" />
-    <None Remove="Areas\AdminArea\Data\**" />
-    <None Remove="Areas\AdminArea\Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Migrations\20221107103604_AddContactTable.cs" />
     <Compile Remove="Migrations\20221107103604_AddContactTable.Designer.cs" />
     <Compile Remove="Migrations\20221107104509_CreateContactTable.cs" />
     <Compile Remove="Migrations\20221107104509_CreateContactTable.Designer.cs" />
     <Compile Remove="Migrations\20221107142308_CreateSocialAndCustomerTables.cs" />
     <Compile Remove="Migrations\20221107142308_CreateSocialAndCustomerTables.Designer.cs" />
+    <Compile Remove="Migrations\20221110060714_CreateProductCategoryTable.cs" />
+    <Compile Remove="Migrations\20221110060714_CreateProductCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20221110061142_AddCategoryIdColumnToProductTable.cs" />
+    <Compile Remove="Migrations\20221110061142_AddCategoryIdColumnToProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20221110063117_DeleteCategoryIdToProductTable.cs" />
+    <Compile Remove="Migrations\20221110063117_DeleteCategoryIdToProductTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.4.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.29">
       <PrivateAssets>all</PrivateAssets>
