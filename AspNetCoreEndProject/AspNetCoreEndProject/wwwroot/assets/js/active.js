@@ -94,6 +94,38 @@
 	$('[data-toggle="tooltip"]').tooltip();
 
 
+
+	//basket ajax
+
+	$(document).on("click", ".add-to-cart", function () {
+
+		let productId = parseInt($(this).closest(".product-item").children(0).val());
+		let data = { id: productId }
+
+		console.log(productId)
+
+		$.ajax({
+			url: "/home/addbasket",
+			type: "Post",
+			data: data,
+			content: "application/x-www-from-urlencoded",
+			success: function (res) {
+
+				Swal.fire({
+					icon: 'success',
+					title: 'Product added',
+					showConfirmButton: false,
+					timer: 1500
+				})
+			}
+
+
+		});
+
+	});
+
+	// basket end
+
 	// Hero main slider active
 	$('.hero-slider-active').slick({
 		fade: true,

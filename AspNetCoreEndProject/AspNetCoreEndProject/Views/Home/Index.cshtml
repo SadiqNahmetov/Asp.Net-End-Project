@@ -43,22 +43,22 @@
 
                 @foreach (var link in Model.Links)
                 {
-                     <div class="col-lg-4">
+                    <div class="col-lg-4">
                         <div style="background-color: @link.Color" class="service-policy-item mt-30 bg-1">
-                           <div class="policy-icon">
-                            <img src="~/assets/img/icon/@link.Icon" alt="policy icon">
+                            <div class="policy-icon">
+                                <img src="~/assets/img/icon/@link.Icon" alt="policy icon">
                             </div>
-                        <div class="policy-content">
-                            <h5 class="policy-title">@link.Title</h5>
-                            <p class="policy-desc">@link.Description</p>
+                            <div class="policy-content">
+                                <h5 class="policy-title">@link.Title</h5>
+                                <p class="policy-desc">@link.Description</p>
+                            </div>
                         </div>
-                        </div>
-                     </div>
-                 }
+                    </div>
+                }
 
-                    <!-- single policy item start -->
-                   
-                </div>
+                <!-- single policy item start -->
+
+            </div>
         </div>
     </section>
     <!-- service features end -->
@@ -79,12 +79,13 @@
                         <!-- product single item start -->
                         @foreach (var product in Model.Products)
                         {
-                            <div class="product-item mb-50">
+                            <div class="product-item mb-50 ">
+                                <input type="hidden" class="product-id" value="@product.Id" />
                                 <div class="product-thumb">
                                     <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
-                                       
-                                            <img src="~/assets/img/product/@product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
-                                        
+
+                                        <img src="~/assets/img/product/@product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -92,14 +93,19 @@
                                         <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">@product.Title</a>
                                     </h5>
                                     <div class="price-box">
-                                       
+
                                         <span class="price-regular">$ @((product.Price-((product.Price*product.DiscountPrice)/100)).ToString("##.00"))</span>
                                         <span class="price-old"><del>$@product.Price.ToString("##.00")</del></span>
                                     </div>
-                                 
+
                                     <div class="product-action-link">
                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                        <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+
+
+                                        <a class="add-to-cart" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+
+                                        @*<button type="submit" data-id="@product.Id" class="border-0 add-to-cart"> <i class="ion-bag"></i></button>*@
+
                                         <a href="#" data-toggle="modal" data-target="#quick_view">
                                             <span data-toggle="tooltip"
                                                   title="Quick View"><i class="ion-ios-eye-outline"></i></span>
@@ -108,7 +114,7 @@
                                 </div>
                             </div>
                         }
-                        <!-- product single item start -->  
+                        <!-- product single item start -->
 
                     </div>
                 </div>
@@ -122,22 +128,22 @@
             <div class="row no-gutters mtn-30">
                 @foreach (var banner in Model.Banners)
                 {
-                <div class="col-md-6">
+                    <div class="col-md-6">
 
-                    <div class="img-container mt-30">
-                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@banner.Id">
-                           
-                            <img src="~/assets/img/banner/@banner.Image" alt="banner-image">
-                        </a>
-                        <div class="banner-text">
-                            <h5 class="banner-subtitle">@banner.SubTitle</h5>
-                            @Html.Raw(banner.Title)
+                        <div class="img-container mt-30">
+                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@banner.Id">
+
+                                <img src="~/assets/img/banner/@banner.Image" alt="banner-image">
+                            </a>
+                            <div class="banner-text">
+                                <h5 class="banner-subtitle">@banner.SubTitle</h5>
+                                @Html.Raw(banner.Title)
+                            </div>
                         </div>
                     </div>
-                 </div>
-                 }
+                }
 
-                </div>
+            </div>
         </div>
     </div>
     <!-- banner statistic area end -->
@@ -160,7 +166,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-xl-8 col-lg-7 col-md-7">
                     <div class="top-seller-carousel slick-row-15 mtn-30">
                         <!-- product item start -->
@@ -170,13 +176,14 @@
                             <div class="slide-item">
                                 <div class="pro-item-small mt-30">
                                     <div class="product-thumb">
+
                                         <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
                                             <img src="~/assets/img/product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                         </a>
                                     </div>
                                     <div class="pro-small-content">
                                         <h6 class="product-name">
-                                            <a asp-controller="ProductDetail" asp-action="Index"  asp-route-id="@item.Id">@item.Title</a>
+                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">@item.Title</a>
                                         </h6>
                                         <div class="price-box">
                                             <span class="price-regular">$@((item.Price-((item.Price*item.DiscountPrice)/100)).ToString("##.00"))</span>
@@ -203,7 +210,7 @@
                         }
 
                         <!-- product item start -->
-                       
+
                     </div>
                 </div>
             </div>
@@ -249,8 +256,8 @@
                         }
 
                         <!-- blog single item start -->
-                    
-                       
+
+
                     </div>
                 </div>
             </div>
@@ -265,22 +272,23 @@
                     <div class="brand-active-carousel">
                         @foreach (var brand in Model.Brands)
                         {
-                             <div class="brand-item">
+                            <div class="brand-item">
 
-                                   <a href="#">
-                                      <img src="~/assets/img/brand/@brand.Image" alt="brand image">
-                                   </a>
-                             </div>
-                         }
-                          
-              
-            
-           </div>
+                                <a href="#">
+                                    <img src="~/assets/img/brand/@brand.Image" alt="brand image">
+                                </a>
+                            </div>
+                        }
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- brand area end -->
-</main>
-<!-- main wrapper end -->
 
+</main>
+
+<!-- main wrapper end -->

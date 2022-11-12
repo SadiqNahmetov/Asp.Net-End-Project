@@ -1,4 +1,5 @@
-﻿using AspNetCoreEndProject.Models;
+﻿using AspNetCoreEndProject.Helpers.Enums;
+using AspNetCoreEndProject.Models;
 using AspNetCoreEndProject.Services.Interfaces;
 using AspNetCoreEndProject.ViewModels.AccountViewModels;
 
@@ -11,10 +12,12 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreEndProject.Controllers
 {
+    
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailService _emailService;
         private readonly IFileService _fileService;
 
@@ -22,13 +25,16 @@ namespace AspNetCoreEndProject.Controllers
         public AccountController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             IEmailService emailService,
-            IFileService fileService)
+            IFileService fileService,
+              RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
             _fileService = fileService;
-        }
+            _roleManager = roleManager;
+        
+    }
 
 
         [HttpGet]
@@ -149,6 +155,19 @@ namespace AspNetCoreEndProject.Controllers
         }
 
 
+
+      
+        public async Task CreateRoles()
+        {
+            foreach (var role in Enum.GetValues(typeof(Roles)))
+            {
+                if (!await _roleManager.RoleExistsAsync(role.ToString()))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
+
+        }
     }
 }
 
