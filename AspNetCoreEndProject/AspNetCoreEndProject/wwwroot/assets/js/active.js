@@ -97,9 +97,9 @@
 
 	//basket ajax
 
-	$(document).on("click", ".add-to-cart", function () {
+	$(document).on("click", ".sadiq", function () {
 
-		let productId = parseInt($(this).closest(".product-item").children(0).val());
+		let productId = parseInt($(this).closest(".nahmetov").children(0).val());
 		let data = { id: productId }
 
 		console.log(productId)

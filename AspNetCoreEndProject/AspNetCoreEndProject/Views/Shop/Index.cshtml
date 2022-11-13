@@ -155,7 +155,8 @@
                             {
                                 <div class="col-lg-4 col-sm-6">
                                     <!-- product grid item start -->
-                                    <div class="product-item mb-53" data-id="@shop.CategoryId">
+                                    <div class="product-item nahmetov mb-53" data-id="@shop.CategoryId">
+                                        <input type="hidden" class="product-id" value="@shop.Id" />
                                         <div class="product-thumb">
                                             <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@shop.Id">
                                                 <img src="~/assets/img/product/@shop.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
@@ -171,7 +172,7 @@
                                             </div>
                                             <div class="product-action-link">
                                                 <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                                <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                                <a class="sadiq" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
                                                 <a href="#" data-toggle="modal" data-target="#quick_view">
                                                     <span data-toggle="tooltip"
                                                           title="Quick View"><i class="ion-ios-eye-outline"></i></span>
@@ -181,8 +182,10 @@
                                     </div>
                                     <!-- product grid item end -->
                                     <!-- product list item start -->
-                                    <div class="product-list-item mb-30" data-id="@shop.CategoryId">
-                                        <div class="product-thumb">
+                                    <div class="product-list-item nahmetov mb-30" data-id="@shop.CategoryId">
+                                        <input type="hidden" class="product-id" value="@shop.Id" />
+                                        <div class="product-thumb ">
+
                                             <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@shop.Id">
                                                 <img src="~/assets/img/product/@shop.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">
                                             </a>
@@ -200,7 +203,7 @@
                                             </p>
                                             <div class="product-link-2 position-static">
                                                 <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                                <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                                <a class="sadiq" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
                                                 <a href="#" data-toggle="modal" data-target="#quick_view">
                                                     <span data-toggle="tooltip"
                                                           title="Quick View"><i class="ion-ios-eye-outline"></i></span>

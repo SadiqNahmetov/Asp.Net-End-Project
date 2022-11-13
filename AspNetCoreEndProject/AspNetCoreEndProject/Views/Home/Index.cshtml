@@ -19,9 +19,9 @@
                             <div class="hero-single-slide">
                                 <div class="hero-slider-item bg-img" style="background-image: url(~/../assets/img/slider/@slider.Image)" @*data-bg="assets/img/slider/slider-1.jpg"*@>
                                     <div class="hero-slider-content slide-1">
-                                        <h5 class="slide-subtitle">@slider.Sale</h5>
-                                        <h2 class="slide-title">@slider.Title</h2>
-                                        <p class="slide-desc">@slider.Description</p>
+                                        <h5 class="slide-subtitle">@Html.Raw(slider.Sale)</h5>
+                                        <h2 class="slide-title">@Html.Raw(slider.Title)</h2>
+                                        <p class="slide-desc">@Html.Raw(slider.Description)</p>
                                         <a href="shop.html" class="btn btn-hero">SHOP NOW</a>
                                     </div>
                                 </div>
@@ -49,8 +49,8 @@
                                 <img src="~/assets/img/icon/@link.Icon" alt="policy icon">
                             </div>
                             <div class="policy-content">
-                                <h5 class="policy-title">@link.Title</h5>
-                                <p class="policy-desc">@link.Description</p>
+                                <h5 class="policy-title">@Html.Raw(link.Title)</h5>
+                                <p class="policy-desc">@Html.Raw(link.Description)</p>
                             </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         <!-- product single item start -->
                         @foreach (var product in Model.Products)
                         {
-                            <div class="product-item mb-50 ">
+                            <div class="product-item nahmetov mb-50 ">
                                 <input type="hidden" class="product-id" value="@product.Id" />
                                 <div class="product-thumb">
                                     <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
@@ -102,9 +102,9 @@
                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
 
 
-                                        <a class="add-to-cart" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                        <a class="sadiq" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
 
-                                        @*<button type="submit" data-id="@product.Id" class="border-0 add-to-cart"> <i class="ion-bag"></i></button>*@
+                                      
 
                                         <a href="#" data-toggle="modal" data-target="#quick_view">
                                             <span data-toggle="tooltip"
@@ -136,8 +136,9 @@
                                 <img src="~/assets/img/banner/@banner.Image" alt="banner-image">
                             </a>
                             <div class="banner-text">
-                                <h5 class="banner-subtitle">@banner.SubTitle</h5>
-                                @Html.Raw(banner.Title)
+                                <h3 class="banner-subtitle"> @Html.Raw(banner.Title)</h3> 
+                                <h5 class="banner-title">@Html.Raw(banner.SubTitle)</h5>
+
                             </div>
                         </div>
                     </div>
@@ -173,40 +174,41 @@
 
                         @foreach (var item in Model.Products)
                         {
-                            <div class="slide-item">
-                                <div class="pro-item-small mt-30">
-                                    <div class="product-thumb">
-
-                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
-                                            <img src="~/assets/img/product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
-                                        </a>
+                        <div class="slide-item nahmetov">
+                            <input type="hidden" class="product-id" value="@item.Id" />
+                            <div class="pro-item-small mt-30">
+                                <div class="product-thumb ">
+                                   
+                                    <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
+                                        <img src="~/assets/img/product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                    </a>
+                                </div>
+                                <div class="pro-small-content">
+                                    <h6 class="product-name">
+                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">@item.Title</a>
+                                    </h6>
+                                    <div class="price-box">
+                                        <span class="price-regular">$@((item.Price-((item.Price*item.DiscountPrice)/100)).ToString("##.00"))</span>
+                                        <span class="price-old"><del>$@item.Price.ToString("##.00")</del></span>
                                     </div>
-                                    <div class="pro-small-content">
-                                        <h6 class="product-name">
-                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">@item.Title</a>
-                                        </h6>
-                                        <div class="price-box">
-                                            <span class="price-regular">$@((item.Price-((item.Price*item.DiscountPrice)/100)).ToString("##.00"))</span>
-                                            <span class="price-old"><del>$@item.Price.ToString("##.00")</del></span>
-                                        </div>
-                                        <div class="ratings">
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                        </div>
-                                        <div class="product-link-2">
-                                            <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#quick_view">
-                                                <span data-toggle="tooltip"
-                                                      title="Quick View"><i class="ion-ios-eye-outline"></i></span>
-                                            </a>
-                                        </div>
+                                    <div class="ratings">
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                    </div>
+                                    <div class="product-link-2">
+                                        <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                        <a class="sadiq" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+                                            <span data-toggle="tooltip"
+                                                  title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         }
 
                         <!-- product item start -->

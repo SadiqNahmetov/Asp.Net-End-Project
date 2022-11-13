@@ -54,8 +54,15 @@ using AspNetCoreEndProject.ViewModels.AccountViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\Sadiq\Desktop\ASP.NET\Asp.Net-end-project\AspNetCoreEndProject\AspNetCoreEndProject\Views\_ViewImports.cshtml"
+using AspNetCoreEndProject.ViewModels.ProductViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"edebb05423363237ec731e18f5911aa70b73307c", @"/Views/Basket/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"745809b547f4112bbd00184042f35cd132f3bb7e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"caaa854f6bd0725a7ee7be00492fbc2472846285", @"/Views/_ViewImports.cshtml")]
     public class Views_Basket_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<BasketDetailVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("product image"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -144,7 +151,7 @@ using AspNetCoreEndProject.ViewModels.AccountViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                    <tr>\r\n                                        <td class=\"pro-thumbnail\">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "edebb05423363237ec731e18f5911aa70b73307c9054", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "edebb05423363237ec731e18f5911aa70b73307c9311", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -210,7 +217,7 @@ WriteAttributeValue("", 2806, item.Count, 2806, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("</span></td>\r\n\r\n\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edebb05423363237ec731e18f5911aa70b73307c13132", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edebb05423363237ec731e18f5911aa70b73307c13389", async() => {
                 WriteLiteral("\r\n                                        <td class=\"pro-remove\"><button type=\"submit\"><i class=\"fa fa-trash-o\"></i></button></td>\r\n                                        ");
             }
             );
@@ -257,7 +264,7 @@ WriteAttributeValue("", 2806, item.Count, 2806, 11, false);
 #nullable disable
             WriteLiteral("\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n");
             WriteLiteral("                        <div class=\"cart-update-option d-block d-md-flex justify-content-between\">\r\n                            <div class=\"apply-coupon-wrapper\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edebb05423363237ec731e18f5911aa70b73307c16759", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edebb05423363237ec731e18f5911aa70b73307c17016", async() => {
                 WriteLiteral("\r\n                                    <input type=\"text\" placeholder=\"Enter Your Coupon Code\" required />\r\n                                    <button class=\"btn\">Apply Coupon</button>\r\n                                ");
             }
             );

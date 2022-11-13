@@ -10,5 +10,6 @@ namespace AspNetCoreEndProject.ViewModels
     {
         public IEnumerable<Category> Categories { get; set; }
         public Dictionary<string, string> Settings { get; set; }
+        public List<BasketDetailVM> BasketDetail { get; set; }
     }
 }

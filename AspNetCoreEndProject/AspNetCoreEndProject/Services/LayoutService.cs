@@ -36,7 +36,7 @@ namespace AspNetCoreEndProject.Services
         }
         public async Task<IEnumerable<Category>> GetDatasFromCategory()
         {
-            return await _context.Categories.Where(m => !m.isDeleted).ToListAsync();
+            return await _context.Categories.Where(m => !m.isDeleted).Take(6).ToListAsync();
 
         }
     }
