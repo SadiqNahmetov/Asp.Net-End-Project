@@ -1,0 +1,27 @@
+﻿@model Brand
+
+@{ ViewData["Title"] = "Edit"; }
+
+<div class="container-fluid mx-5 my-3">
+    <h3>Brand image</h3>
+    <img style="width:200px; height:150px;" src="~/assets/img/brand/@Model.Image" alt="brand" />
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div class="form-group my-1">
+            <input class="form-control" asp-for="Photo">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+        </div>
+     
+   
+     
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a class="btn btn-primary" asp-controller="Brand" asp-action="Index">Back</a>
+
+    </form>
+</div>
+
+
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+    <script src="~/ckeditor/ckeditor.js"></script>
+}

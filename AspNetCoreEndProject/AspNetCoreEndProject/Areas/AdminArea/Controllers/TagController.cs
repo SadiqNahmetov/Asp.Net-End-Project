@@ -11,20 +11,22 @@ using System.Threading.Tasks;
 namespace AspNetCoreEndProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    public class CategoryController : Controller
+    public class TagController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public CategoryController(AppDbContext context, IWebHostEnvironment env)
+        public TagController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public async  Task<IActionResult> Index()
         {
-            IEnumerable<Category> categories = await _context.Categories.Where(m => !m.isDeleted).ToListAsync();
-            return View(categories);
+            IEnumerable<Tag> tags = await _context.Tags.Where(m => !m.isDeleted).ToListAsync();
+            return View(tags);
         }
+
+
 
         public IActionResult Create()
         {
@@ -79,22 +81,6 @@ namespace AspNetCoreEndProject.Areas.AdminArea.Controllers
             }
 
         }
-
-
-        [HttpGet]
-        public async Task<IActionResult> Detail(int? id)
-        {
-            if (id == null) return BadRequest();
-
-            Category category = await _context.Categories.FindAsync(id);
-
-            if (category == null) return NotFound();
-
-            return View(category);
-        }
-
-
-
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -102,11 +88,11 @@ namespace AspNetCoreEndProject.Areas.AdminArea.Controllers
             {
                 if (id is null) return BadRequest();
 
-                Category category = await _context.Categories.FirstOrDefaultAsync(m => m.Id == id);
+                Tag tag = await _context.Tags.FirstOrDefaultAsync(m => m.Id == id);
 
-                if (category is null) return NotFound();
+                if (tag is null) return NotFound();
 
-                return View(category);
+                return View(tag);
 
             }
             catch (Exception ex)
@@ -119,26 +105,26 @@ namespace AspNetCoreEndProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Category category)
+        public async Task<IActionResult> Edit(int id, Tag tag)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(category);
+                    return View(tag);
                 }
 
-                Category dbCategory = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+                Tag dbTag = await _context.Tags.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
 
-                if (dbCategory is null) return NotFound();
+                if (dbTag is null) return NotFound();
 
-                if (dbCategory.Name.ToLower().Trim() == category.Name.ToLower().Trim())
+                if (dbTag.TagName.ToLower().Trim() == tag.TagName.ToLower().Trim())
                 {
                     return RedirectToAction(nameof(Index));
                 }
 
 
-                _context.Categories.Update(category);
+                _context.Tags.Update(tag);
 
                 await _context.SaveChangesAsync();
 
@@ -155,17 +141,33 @@ namespace AspNetCoreEndProject.Areas.AdminArea.Controllers
 
 
 
+
+        [HttpGet]
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null) return BadRequest();
+
+            Tag tag = await _context.Tags.FindAsync(id);
+
+            if (tag == null) return NotFound();
+
+            return View(tag);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            Category category = await _context.Categories.FirstOrDefaultAsync(m => m.Id == id);
+            Tag tag = await _context.Tags.FirstOrDefaultAsync(m => m.Id == id);
 
-            category.isDeleted = true;
+            tag.isDeleted = true;
 
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
+
+
 
 
         private async Task<Category> GetByIdAsync(int id)

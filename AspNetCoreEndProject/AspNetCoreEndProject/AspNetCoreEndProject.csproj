@@ -392,8 +392,4 @@
     <None Include="wwwroot\ckeditor\vendor\promise.js" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\LinkViewModels\" />
-  </ItemGroup>
-
 </Project>

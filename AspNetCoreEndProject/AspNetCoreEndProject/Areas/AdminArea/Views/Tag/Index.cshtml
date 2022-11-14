@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category>
+﻿@model IEnumerable<Tag>
 @{
     ViewData["Title"] = "Index";
 }
@@ -11,11 +11,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="text-danger my-2">Category</h4>
-               
-                    <div class="create-btn mb-3">
-                        <a asp-area="AdminArea" asp-controller="Category" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
-                    </div>
-                
+
+                <div class="create-btn mb-3">
+                    <a asp-area="AdminArea" asp-controller="Category" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+                </div>
+
 
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
@@ -23,7 +23,7 @@
                             <tr>
 
                                 <th>
-                                   Name
+                                    Name
                                 </th>
 
                                 <th class="text-lg-center">
@@ -34,19 +34,19 @@
                         </thead>
                         <tbody>
 
-                            @foreach (var item in Model)
+                            @foreach (var tag in Model)
                             {
                                 <tr class="table-info">
 
                                     <td>
-                                        @Html.Raw(item.Name)
+                                        @Html.Raw(tag.TagName)
                                     </td>
 
                                     <td id="parent-image" style="text-align: center;">
-                                        <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info"><i class="mdi mdi-information mx-0 text-white"></i></a>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="mdi mdi-table-edit"></i></a>
-                                        <form id="parent-image" style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button data-id="@item.Id" type="submit" class="btn btn-danger"><i class="mdi mdi-delete-forever"></i></button>
+                                        <a asp-action="Detail" asp-route-id="@tag.Id" class="btn btn-info"><i class="mdi mdi-information mx-0 text-white"></i></a>
+                                        <a asp-action="Edit" asp-route-id="@tag.Id" class="btn btn-primary"><i class="mdi mdi-table-edit"></i></a>
+                                        <form id="parent-image" style="display: inline-block;" asp-action="Delete" asp-route-id="@tag.Id" method="post">
+                                            <button data-id="@tag.Id" type="submit" class="btn btn-danger"><i class="mdi mdi-delete-forever"></i></button>
                                         </form>
                                     </td>
                                 </tr>
