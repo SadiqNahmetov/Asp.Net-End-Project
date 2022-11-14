@@ -69,6 +69,8 @@ namespace AspNetCoreEndProject.Controllers
                 return View(registerVM);
             }
 
+            await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
+
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
             string link = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token },
